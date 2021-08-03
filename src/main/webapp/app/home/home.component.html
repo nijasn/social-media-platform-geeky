@@ -1,0 +1,83 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="container">
+      <div>
+        <form name="postForm">
+          <div class="mb-3">
+            <textarea
+              [(ngModel)]="content"
+              type="text"
+              placeholder="Whats on your mind?"
+              class="form-control"
+              name="exampleInputEmail1"
+            ></textarea>
+          </div>
+          <span *ngIf="invalidForm" style="color: red">Please enter the content</span>
+          <span *ngFor="let img of imageSrc; let i = index">
+            <img src="{{ img }}" height="auto" width="50" />
+            <i (click)="removeImage(i)" class="fas fa-window-close" style="margin-top: 3px; position: absolute; margin-left: -4px"></i>
+          </span>
+          <button style="background: blue; border-radius: 0; width: 96px" title="Click here to select images." (click)="selectFiles()">
+            Images
+          </button>
+          <input type="file" multiple id="media" style="display: none" (change)="onFileSelect($event)" />
+          <button
+            type="submit"
+            (click)="submitPost()"
+            style="background: blue; border-radius: 0; width: 96px"
+            class="btn btn-primary float-right"
+          >
+            Post
+          </button>
+        </form>
+        <br />
+      </div>
+      <br />
+      <div class="col-md-10">
+        <div class="panel panel-default" *ngFor="let post of posts">
+          <div class="panel-body">
+            <section class="post-heading">
+              <div class="row">
+                <div class="col-md-11">
+                  <div class="media">
+                    <div class="media-left">
+                      <a style="margin: 10px">
+                        <img
+                          class="media-object photo-profile"
+                          src="https://t3.ftcdn.net/jpg/03/46/83/96/240_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg"
+                          width="40"
+                          height="40"
+                          alt="..."
+                        />
+                      </a>
+                    </div>
+                    <div class="media-body">
+                      <a style="margin: 0px" class="anchor-username"
+                        ><h4 class="media-heading">{{ post.user?.firstName }} {{ post.user?.lastName }}</h4></a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-1">
+                  <a><i class="glyphicon glyphicon-chevron-down"></i></a>
+                </div>
+              </div>
+            </section>
+            <br />
+            <section class="post-body">
+              <p style="font-size: 20px">{{ post.content }}</p>
+            </section>
+            <br />
+            <section class="post-image" *ngIf="post.media && post.media.length > 0">
+              <div class="row">
+                <div class="col-md-6" *ngFor="let img of post.media" style="height: 250px">
+                  <img style="width: 100%" src="{{ img }}" />
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

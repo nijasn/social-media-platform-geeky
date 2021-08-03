@@ -1,0 +1,71 @@
+/* ==========================================================================
+Main page styles
+========================================================================== */
+
+.hipster {
+  display: inline-block;
+  width: 347px;
+  height: 497px;
+  background: url('../../content/images/jhipster_family_member_2.svg') no-repeat center top;
+  background-size: contain;
+}
+
+/*-- Global Selectors --*/
+a {
+  color: #47649f;
+}
+
+body {
+  font-family: 'helvetica';
+}
+
+/*-- Bootstrap Override Style --*/
+
+/*-- Content Style --*/
+.post-footer-option li {
+  float: left;
+  margin-right: 50px;
+  padding-bottom: 15px;
+}
+
+.icon-btn {
+  border-radius: 41px;
+  padding: 6px;
+  /* background-color: lightblue; */
+  border-color: black;
+}
+
+.post-footer-option li a {
+  color: #afb4bd;
+  font-weight: 500;
+  font-size: 1.3rem;
+}
+
+.photo-profile {
+  border: 1px solid #ddd;
+}
+
+.anchor-username h4 {
+  font-weight: bold;
+}
+
+.anchor-time {
+  color: #adb2bb;
+  font-size: 1.2rem;
+}
+
+.post-footer-comment-wrapper {
+  background-color: #f6f7f8;
+}
+
+/* wait autoprefixer update to allow simple generation of high pixel density media query */
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (-moz-min-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+  .hipster {
+    background: url('../../content/images/jhipster_family_member_2.svg') no-repeat center top;
+    background-size: contain;
+  }
+}
